@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+npm_preconfigure()
+{
+  package_must_be_active "node"
+}
+
+npm_postfetch()
+{
+  remove_paths "${package_dir}"
+  if path_exists "package"
+  then
+    move_directory "package" to "${package_dir}"
+  fi
+}
+
+latest_version()
+{
+  json="$(curl http://registry.npmjs.org/npm/latest)"
+  version="${json##*version\":\"}"
+  version="${version%%\"*}"
+
+  printf "%s" "${version}"
+}
