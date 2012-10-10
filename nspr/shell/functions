@@ -1,0 +1,6 @@
+#!/bin/sh
+
+nspr_postfetch()
+{
+  cd mozilla/nsprpub
+}
