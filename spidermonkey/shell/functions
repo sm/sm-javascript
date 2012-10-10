@@ -1,0 +1,11 @@
+#!/bin/sh
+
+spidermonkey_prefetch()
+{
+  package define file "js185-1.0.0.tar.gz"
+}
+
+spidermonkey_postfetch()
+{
+  cd js-1.8.5/js/src/
+}
